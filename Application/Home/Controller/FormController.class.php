@@ -23,7 +23,7 @@ class FormController extends Controller
 //        $map['id'] = array('between',array('1','8'));
 //        $map['title'] = array('like','thinkphp%');
 //        $map['id'] = array(array('neq', 9), array('gt', 3), 'and');
-        $list = $Form->where($map)->order('create_time asc')->select();
+        $list = $Form->where($map)->order('create_time asc')->Page('1,10')->select();
 
 //        直接SQL查询
 //        $Model = new Model(); // 实例化一个model对象 没有对应任何数据表

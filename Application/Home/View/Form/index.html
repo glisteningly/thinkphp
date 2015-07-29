@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h2>ThinkPHP练习</h2>
-<hr/>
+<layout name="layout" />
+
+<h4>列表</h4>
 <volist name="list" id="vo">
-    {$vo.id}. {$vo.title} —— {$vo.content} | <a href="__URL__/edit/id/{$vo.id}">编辑</a> | <a href="__URL__/delete/id/{$vo.id}">删除</a><br/>
+    {$vo.id}. <a href="__URL__/read/id/{$vo.id}">{$vo.title}</a> —— {$vo.content}
+    | <a href="__URL__/edit/id/{$vo.id}">编辑</a>
+    | <a href="__URL__/delete/id/{$vo.id}">删除</a><br/>
 </volist>
 
 <hr/>
-记录数: {$count} <a href="__URL__/add">新增</a>
-</body>
-</html>
+记录数: {$count} | <a href="__URL__/add">新增</a>

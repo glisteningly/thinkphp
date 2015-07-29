@@ -12,4 +12,16 @@ return array(
     'DB_CHARSET' => 'utf8',// 数据库字符集
 
     'SHOW_PAGE_TRACE' => true,
+
+//    'URL_ROUTER_ON'   => true, //开启路由
+//    'URL_ROUTE_RULES' => array(
+//        'hello/:name' =>
+//            function ($name) {
+//                echo 'Hello,' . $name;
+//            },
+//        'form/:id' => "Form/read",
+//    ),
+
+//    'LAYOUT_ON'=>true,
+//    'LAYOUT_NAME'=>'layout',
 );
