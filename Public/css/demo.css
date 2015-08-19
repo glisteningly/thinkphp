@@ -1,0 +1,38 @@
+* {
+    font-size: 12px;
+}
+
+body {
+    font-family: verdana, helvetica, arial, sans-serif;
+    padding: 20px;
+    font-size: 12px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.demo-info {
+    padding: 0 0 12px 0;
+}
+
+.demo-tip {
+    display: none;
+}
+
+.fa {
+    padding-top: 1px;
+    font-size: 15px;
+}
+a:focus { outline:0; }
+
+.i-blue {  color: #3498db;  }
+.i-red {  color: #e74c3c;  }
+.i-green {  color: #359e2e;  }
+.i-orange {  color: #f39c12;  }
+.i-yellow {  color: #f1c40f;  }
+.i-grey {  color: #cccccc;  }

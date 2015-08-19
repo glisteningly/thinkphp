@@ -1,0 +1,62 @@
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+  }
+}
+
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+#bundle {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white
+    }
+  }
+  .tab {
+  }
+  .citation {
+  }
+}
+
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+
+@base: #f04615;
+@width: 0.5;
+
+.class {
+  width: percentage(@width+0.1); // returns `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
+
+// 变量
+@mySelector: banner;
+
+// 用法
+.@{mySelector} {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}

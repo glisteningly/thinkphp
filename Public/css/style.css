@@ -1,0 +1,48 @@
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#bundle .button {
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+#bundle .button:hover {
+  background-color: #ffffff;
+}
+#header a {
+  color: orange;
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+#header a:hover {
+  background-color: #ffffff;
+}
+.class {
+  width: 60%;
+  color: #f6430f;
+  background-color: #f8b38d;
+}
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}

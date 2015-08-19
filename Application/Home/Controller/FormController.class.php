@@ -34,7 +34,65 @@ class FormController extends Controller
 //        echo($subQuery);
 
         $this->assign('list', $list);
-        $this->display();
+        $this->display('index2');
+//        $this->ajaxReturn($list,"json");
+    }
+
+    public function getuser($page = 1, $row = 10)
+    {
+        $Form = M('Form');
+        $result["total"] = $Form->count();
+        $list = $Form->Page($page, $row)->select();
+//        $list = $Form->field("from_unixtime(time,'%Y-%m') as time")->select();
+//        $list = $Form->field("title,content,from_unixtime(create_time,'%Y-%m-%d &nbsp&nbsp %H:%i:%s') as create_time")->order('create_time asc')->select();
+
+        $result["rows"] = $list;
+//        $this->assign('result', $result);
+        $this->ajaxReturn($result);
+    }
+
+    public function adduser()
+    {
+        $Form = D('Form');
+        if ($Form->create()) {
+            $result = $Form->add(); // 写入数据到数据库
+            if ($result) {
+                // 如果主键是自动增长型 成功后返回值就是最新插入的值
+                $insertId = $result;
+                $this->ajaxReturn(array('success' => true));
+            } else {
+                $this->ajaxReturn(array('msg' => 'Some errors occured.'));
+            }
+        }
+    }
+
+    public function updateuser()
+    {
+        $Form = D('Form');
+        $map['id'] = I('get.id');
+        if ($Form->create()) {
+            $result = $Form->where($map)->save(); // 写入数据到数据库
+            if ($result) {
+                // 如果主键是自动增长型 成功后返回值就是最新插入的值
+                $insertId = $result;
+                $this->ajaxReturn(array('success' => true));
+            } else {
+                $this->ajaxReturn(array('msg' => 'Some errors occured.'));
+            }
+        }
+    }
+
+    public function deleteuser()
+    {
+        $Form = M("Form");
+        $result = $Form->delete(I('id'));
+        if ($result) {
+            // 如果主键是自动增长型 成功后返回值就是最新插入的值
+            $insertId = $result;
+            $this->ajaxReturn(array('success' => true));
+        } else {
+            $this->ajaxReturn(array('msg' => 'Some errors occured.'));
+        }
     }
 
     public function insert()
