@@ -23,7 +23,8 @@ class FormController extends Controller
 //        $map['id'] = array('between',array('1','8'));
 //        $map['title'] = array('like','thinkphp%');
 //        $map['id'] = array(array('neq', 9), array('gt', 3), 'and');
-        $list = $Form->where($map)->order('create_time asc')->Page('1,10')->select();
+//        $list = $Form->where($map)->order('create_time asc')->Page('1,10')->select();
+        $list = $Form->where($map)->order('create_time asc')->select();
 
 //        直接SQL查询
 //        $Model = new Model(); // 实例化一个model对象 没有对应任何数据表
@@ -34,8 +35,13 @@ class FormController extends Controller
 //        echo($subQuery);
 
         $this->assign('list', $list);
-        $this->display('index2');
+        $this->display('index');
 //        $this->ajaxReturn($list,"json");
+    }
+
+    public function index2()
+    {
+        $this->display('index2');
     }
 
     public function getuser($page = 1, $row = 10)
