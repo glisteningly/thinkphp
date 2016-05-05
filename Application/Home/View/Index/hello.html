@@ -1,9 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>hello {$name}</title>
+  <title>hello {$name}</title>
 </head>
 <body>
-hello, {$name}!
+<form action="{:U('login')}" method="post" class="login-form">
+  <div>
+    <input type="number" name="phone" placeholder="请填手机号码" autocomplete="off">
+  </div>
+  <div class="item verifycode">
+    <input type="text" name="verify" placeholder="请填写验证码" autocomplete="off">
+    <a class="reloadverify" title="换一张" href="javascript:void(0)">换一张？</a>
+  </div>
+  <div>
+    <img class="verifyimg reloadverify" alt="点击切换" src="{:U('Public/verify')}">
+  </div>
+  <button class="login-btn" type="submit">
+    <!--<span class="in"><i class="icon-loading"></i>登 录 中 ...</span>-->
+    <span class="on">登 录</span>
+  </button>
+</form>
 </body>
+<script type="text/javascript" src="http://cdn.staticfile.org/zepto/1.0rc1/zepto.min.js"></script>
+<script>
+  $(function () {
+    //初始化选中用户名输入框
+    $("#itemBox").find("input[name=username]").focus();
+    //刷新验证码
+    var verifyimg = $(".verifyimg").attr("src");
+    $(".reloadverify").click(function () {
+      if (verifyimg.indexOf('?') > 0) {
+        $(".verifyimg").attr("src", verifyimg + '&random=' + Math.random());
+      } else {
+        $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/, '') + '?' + Math.random());
+      }
+    });
+  })
+</script>
 </html>

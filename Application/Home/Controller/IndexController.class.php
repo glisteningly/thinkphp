@@ -1,9 +1,11 @@
 <?php
 namespace Home\Controller;
 
-use Think\Controller;
+//use User\Api\UserApi;
 
-class IndexController extends Controller
+//use Think\Controller;
+
+class IndexController extends \Think\Controller
 {
     public function index()
     {
@@ -26,6 +28,22 @@ class IndexController extends Controller
         $Data = M('Data');// 实例化Data数据模型
         $result = $Data->find(3);
         $this->assign('result', $result);
+        $this->display();
+    }
+
+    public function login($phone = '13900000000', $verify = null)
+    {
+        if (!check_verify($verify)) {
+            $this->error('验证码输入错误！');
+        }
+        $this->assign('phone', $phone);
+        $this->assign('verify', $verify);
+        $this->display();
+
+    }
+
+    public function smstest()
+    {
         $this->display();
     }
 }
